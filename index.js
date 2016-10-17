@@ -30,6 +30,7 @@ f2.addMinterms([
   new MinTerm(4),
   new MinTerm(5)
 ]);
+
 f2.addDontcares([
   new DontCare(6),
   new DontCare(7),
@@ -46,6 +47,7 @@ f3.addMinterms([
   new MinTerm(7),
   new MinTerm(8)
 ]);
+
 f3.addDontcares([
   new DontCare(0),
   new DontCare(5),

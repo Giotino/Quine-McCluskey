@@ -83,3 +83,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# web-ui
+web-ui/src/node_modules
+web-ui/dist

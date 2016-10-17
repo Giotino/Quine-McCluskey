@@ -12,7 +12,6 @@ Definizioni:
 Per la copertura e' stata impostata una tabella che ha come nome delle colonne 
   <minterm>.<funzione> (es 2.1 -> minterm 2 della seconda funzione)
 */
-
 const Block = require('./block.js');
 const Utility = require('./utility.js');
 const Miniterm = require('./minterm.js');
