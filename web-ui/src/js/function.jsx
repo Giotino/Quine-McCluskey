@@ -19,8 +19,8 @@ var Function = React.createClass({
     return (
       <div className="panel panel-default" id="function" style={{padding: '0.5em', margin: '0.5em', display: 'table'}}>
         <div id="name" dangerouslySetInnerHTML={{__html: name}}  style={{display: 'inline-block', marginLeft: '1em', marginRight: '1em'}}></div><a href="#" onClick={this.remove}>Rimuovi</a><br />
-        <div style={{display: 'inline-block'}}>MinTerm:<input type="text" value={this.mts} onChange={this.onChange.bind(this, "mts")} placeholder="1,2,3" /></div>&nbsp;&nbsp;
-        <div style={{display: 'inline-block'}}>DontCare:<input type="text" value={this.dcs} onChange={this.onChange.bind(this, "dcs")} placeholder="4,5,6" /></div>
+        <div style={{display: 'inline-block'}}>MinTerm:<input type="text" value={this.mts} onChange={this.onChange.bind(this, "mts")} placeholder="1,2,3" className="form-control" /></div>&nbsp;&nbsp;
+        <div style={{display: 'inline-block'}}>DontCare:<input type="text" value={this.dcs} onChange={this.onChange.bind(this, "dcs")} placeholder="4,5,6" className="form-control" /></div>
       </div>
     );
   }

@@ -8,7 +8,7 @@ const GoogleAnalytics = require('ga');
 var ua = "UA-85784798-2";
 var host = 'uni.giotino.com';
 global.ga = new GoogleAnalytics(ua, host);
-ga.trackPage('software/QuineMcCluskey');
+ga.trackPage('software/QuineMcCluskey/' + device.platform);
 
 ReactDOM.render(
   <QM />,

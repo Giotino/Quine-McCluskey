@@ -59,8 +59,8 @@ var QM = React.createClass({
   render: function() {
     return (
       <div>
-        Bits: <input type="text" ref="bits" placeholder="A,B,C" />
-        <br /><br />
+        Bits: <input type="text" ref="bits" placeholder="A,B,C" className="form-control" />
+        <br />
         <button type="button" className="btn btn-default btn-xs" onClick={this.addFunction}>Aggiungi Funzione</button>
         <div>
           {this.state.func}
@@ -114,6 +114,9 @@ var QM = React.createClass({
 
       if(typeof a.state.terms[fun.props.id]['dontcares'] != undefined)
         a.state.terms[fun.props.id]['dontcares'].split(',').forEach(function(dc) {
+          if(dc === "")
+            return;
+            
           if(dc>max)
             error *= 3;
 

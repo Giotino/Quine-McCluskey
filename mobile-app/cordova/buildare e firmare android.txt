@@ -1,0 +1,5 @@
+cordova build --release android
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore android.keystore platforms\android\build\outputs\apk\android-release-unsigned.apk <alias>
+
+zipalign -v 4 platforms\android\build\outputs\apk\android-release-unsigned.apk com.giotino.uni.QuineMcCluskey.apk

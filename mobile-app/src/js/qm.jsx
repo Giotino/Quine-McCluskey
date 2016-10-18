@@ -113,6 +113,9 @@ var QM = React.createClass({
 
       if(typeof a.state.terms[fun.props.id]['dontcares'] != undefined)
         a.state.terms[fun.props.id]['dontcares'].split(',').forEach(function(dc) {
+          if(dc === "")
+            return;
+            
           if(dc>max)
             error *= 3;
 
