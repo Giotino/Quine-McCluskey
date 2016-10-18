@@ -87,3 +87,9 @@ $RECYCLE.BIN/
 # web-ui
 web-ui/src/node_modules
 web-ui/dist
+
+# mobile-app
+mobile-app/src/node_modules
+mobile-app/cordova/www
+mobile-app/cordova/platforms
+mobile-app/cordova/plugins
