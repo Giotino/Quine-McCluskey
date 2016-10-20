@@ -2,12 +2,15 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 
 const Function = require('./function.jsx');
+const Export = require('./export.jsx');
+
 const qms = {
   Function: require('../../../function.js'),
   DontCare: require('../../../dontcare.js'),
   MinTerm: require('../../../minterm.js'),
   QM: require('../../../qm.js')
 };
+
 
 var QM = React.createClass({
   getInitialState: function(){
@@ -57,6 +60,8 @@ var QM = React.createClass({
   },
 
   render: function() {
+    var dload = this.state.blocks ? <Export blocks={this.state.blocks} bits={this.refs.bits.value.split(',')} nfunc={this.state.func.length} /> : null;
+
     return (
       <div>
         Bits: <input type="text" ref="bits" placeholder="A,B,C" className="form-control" />
@@ -73,6 +78,7 @@ var QM = React.createClass({
           {this.state.res.map((r) => (
             <div>{r}</div>
           ))}
+          {dload}
         </div>
       </div>
     );
@@ -164,14 +170,15 @@ var QM = React.createClass({
 
     var end = new Date();
 
-    global.ga.trackEvent({
-        category: 'software/QuineMcCluskey',
-        action: 'Runned',
-        label: 'B: '+nbits+' - F: '+this.state.func.length+' - MTS: '+mts+' - DCS: '+dcs,
-        value: new Date()-start
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'software/QuineMcCluskey',
+      eventAction: 'Runned',
+      eventLabel: 'B: '+nbits+' - F: '+this.state.func.length+' - MTS: '+mts+' - DCS: '+dcs,
+      eventValue: end-start
     });
-
-    this.setState({res: exp.split("\n")});
+    
+    this.setState({res: exp.split("\n"), blocks: program.picks});
   }
 });
 
