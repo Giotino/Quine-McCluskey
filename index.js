@@ -6,8 +6,8 @@ const Function = require('./function.js');
 const VHDL = require('./vhdl.js');
 //non modificare prima di questo
 
-global.bits = 4; //configurare il numero di bits
-var bits_names = ['A', 'B', 'C', 'D']; //configurare i nomi dei bits
+global.bits = 3; //configurare il numero di bits
+var bits_names = ['A', 'B', 'C']; //configurare i nomi dei bits
 
 var p = new qm(global.bits, bits_names);
 
@@ -15,40 +15,13 @@ var f1 = new Function('F0'); //crea quante funzioni vuoi
 f1.addMinterms([ //inserisci i minterms della funzione
   new MinTerm(0),
   new MinTerm(1),
-  new MinTerm(2),
-  new MinTerm(15)
-]);
-f1.addDontcares([ //inserisci i dontcares della funzione
-  new DontCare(3)
+  new MinTerm(3),
+  new MinTerm(5),
+  new MinTerm(7)
 ]);
 p.functions.push(f1); //aggiungi la funzione al programma
 
 //un'altra funzione
-var f2 = new Function('F1');
-f2.addMinterms([
-  new MinTerm(2),
-  new MinTerm(3),
-  new MinTerm(4),
-  new MinTerm(5)
-]);
-
-f2.addDontcares([
-  new DontCare(0),
-  new DontCare(1)
-]);
-p.functions.push(f2);
-//che termina qui
-
-//ancora una funzione
-var f3 = new Function('F2');
-f3.addMinterms([
-  new MinTerm(0),
-  new MinTerm(1),
-  new MinTerm(4),
-  new MinTerm(5)
-]);
-
-p.functions.push(f3);
 //che termina qui
 
 //non modificare oltre questo
@@ -57,7 +30,7 @@ p.expansion();
 p.coverage();
 console.log(p.expression());
 
-var v = new VHDL(global.bits, 3, p.picks, ['A', 'B', 'C', 'D'], ['F1', 'F2', 'F3']);
+var v = new VHDL(global.bits, 1, p.picks, ['A', 'B', 'C'], ['F1', 'F2', 'F3']);
 
 console.log();
 

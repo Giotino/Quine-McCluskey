@@ -73,9 +73,15 @@ class VHDL {
     var a = this;
     this.blocks.forEach((block, i) => {
       a.out += '  T'+i+' <= ';
+      var bitadded = 0; //bit aggiunti
       block.bits.reverse().forEach((b, j) => {
-        if(j != 0 && (b == 0 || b == 1))
-          a.out += ' and ';
+        if(b === 0 || b === 1) {
+          if(bitadded != 0 )
+            a.out += ' and ';
+          
+          bitadded++;
+        }
+        
 
         if(b === 1)
           a.out += 'I'+j;
